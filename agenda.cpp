@@ -36,7 +36,7 @@ void modificar(struct contacto *agenda, int id, struct contacto nuevo)
 
 void listar(struct contacto *agenda)
 {
-    int i=1
+    int i=1;
     do
     {
         std::cout << "Contacto "<<i<<":" << std::endl;

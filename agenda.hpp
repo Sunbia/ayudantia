@@ -19,8 +19,8 @@ struct contacto
     fecha fechaNacimiento;
 };
 
-void ingresar(struct contacto agenda[], struct contacto nuevo);
-void modificar(struct contacto agenda[], int id, struct contacto nuevo);
-void listar(struct contacto agenda[]);
+void ingresar(struct contacto *agenda, struct contacto nuevo);
+void modificar(struct contacto *agenda, int id, struct contacto nuevo);
+void listar(struct contacto *agenda);
 
 #endif
