@@ -17,14 +17,13 @@ struct contacto
     string apellidoPaterno;
     string apellidoMaterno;
     fecha fechaNacimiento;
-    contacto();
 };
 
 
 void ingresar(struct contacto agenda[], struct contacto nuevo);
 void modificar(struct contacto agenda[], int id, struct contacto nuevo);
 void listar(struct contacto agenda[]);
-int sizefree(struct contacto agenda[]);
+int indexfree(struct contacto agenda[]);
 
 
 #endif

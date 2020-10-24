@@ -2,52 +2,60 @@
 #include <string>
 #include "agenda.hpp"
 
-int sizefree(struct contacto agenda[])
+int indexfree(struct contacto agenda[])
 {
-    int sizefree = 0;
-    struct contacto *aux = &agenda[0];
-    for (size_t i = 0; i <MAX ; i++, aux++)
+    for (size_t i = 0; i < MAX; i++)
     {
-        if ((aux + i) == NULL)
+        if (agenda[i].nombre.empty())
         {
-            sizefree++;
+            return i;
         }
     }
-    return sizefree;
 }
 
 void ingresar(struct contacto agenda[], struct contacto nuevo)
 {
-    struct contacto *aux = &agenda[0];
-    int indexfree = (MAX - sizefree(aux) - 1);
-    *(aux + indexfree) = nuevo;
+    int index = indexfree(agenda);
+    agenda[index].id = nuevo.id;
+    agenda[index].nombre = nuevo.nombre;
+    agenda[index].apellidoPaterno = nuevo.apellidoPaterno;
+    agenda[index].apellidoMaterno = nuevo.apellidoMaterno;
+    agenda[index].fechaNacimiento.dia = nuevo.fechaNacimiento.dia;
+    agenda[index].fechaNacimiento.mes = nuevo.fechaNacimiento.mes;
+    agenda[index].fechaNacimiento.anho = nuevo.fechaNacimiento.anho;
 }
 
 void modificar(struct contacto agenda[], int id, struct contacto nuevo)
 {
-    struct contacto *aux = &agenda[0];
     for (size_t i = 0; i < MAX; i++)
     {
-        if ((aux + i)->id == id)
+        if (agenda[i].id == id)
         {
-            *(aux + i) = nuevo;
+            agenda[i].id = nuevo.id;
+            agenda[i].nombre = nuevo.nombre;
+            agenda[i].apellidoPaterno = nuevo.apellidoPaterno;
+            agenda[i].apellidoMaterno = nuevo.apellidoMaterno;
+            agenda[i].fechaNacimiento.dia = nuevo.fechaNacimiento.dia;
+            agenda[i].fechaNacimiento.mes = nuevo.fechaNacimiento.mes;
+            agenda[i].fechaNacimiento.anho = nuevo.fechaNacimiento.anho;
         }
     }
 }
 
 void listar(struct contacto agenda[])
 {
-    struct contacto *aux = &agenda[0];
-    for (size_t i = 0; i < MAX; i++, aux++)
+    for (size_t i = 0; i < MAX; i++)
     {
+        if (agenda[i].nombre.empty() == false)
+        {
             std::cout << "Contacto " << i + 1 << ":" << std::endl;
-            std::cout << "id:" << aux->id << std::endl;
-            std::cout << "nombre:" << aux->nombre;
-            std::cout << " " << aux->apellidoPaterno;
-            std::cout << " " << aux->apellidoMaterno << std::endl;
-            std::cout << "fecha de nacimiento:" << aux->fechaNacimiento.dia << "/"
-                      << aux->fechaNacimiento.mes << "/"
-                      << aux->fechaNacimiento.anho << std::endl;
-        
+            std::cout << "id:" << agenda[i].id << std::endl;
+            std::cout << "nombre:" << agenda[i].nombre;
+            std::cout << " " << agenda[i].apellidoPaterno;
+            std::cout << " " << agenda[i].apellidoMaterno << std::endl;
+            std::cout << "fecha de nacimiento:" << agenda[i].fechaNacimiento.dia << "/"
+                      << agenda[i].fechaNacimiento.mes << "/"
+                      << agenda[i].fechaNacimiento.anho << std::endl;
+        }
     }
 }
