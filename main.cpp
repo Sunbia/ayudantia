@@ -16,6 +16,7 @@ int main()
         cout << "1.Ingresar contacto" << endl;
         cout << "2.Modificar contacto" << endl;
         cout << "3.Mostrar agenda" << endl;
+        cout << "Ingrese una opcion:";
         cin >> valor;
         switch (valor)
         {
