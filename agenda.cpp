@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "agenda.hpp"
-
+/*          Funcion opcional
 int indexfree(struct contacto agenda[])
 {
     for (size_t i = 0; i < MAX; i++)
@@ -12,10 +12,10 @@ int indexfree(struct contacto agenda[])
         }
     }
 }
+*/
 
-void ingresar(struct contacto agenda[], struct contacto nuevo)
+void ingresar(struct contacto agenda[], struct contacto nuevo,size_t index)
 {
-    int index = indexfree(agenda);
     agenda[index].id = nuevo.id;
     agenda[index].nombre = nuevo.nombre;
     agenda[index].apellidoPaterno = nuevo.apellidoPaterno;
@@ -31,7 +31,6 @@ void modificar(struct contacto agenda[], int id, struct contacto nuevo)
     {
         if (agenda[i].id == id)
         {
-            agenda[i].id = nuevo.id;
             agenda[i].nombre = nuevo.nombre;
             agenda[i].apellidoPaterno = nuevo.apellidoPaterno;
             agenda[i].apellidoMaterno = nuevo.apellidoMaterno;
