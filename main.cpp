@@ -10,6 +10,7 @@ int main()
     struct contacto *agenda;
     agenda = new contacto[MAX];
     struct contacto nuevo;
+    size_t index;
 
     do
     {
@@ -25,7 +26,7 @@ int main()
             cin >> nuevo.id;
 
             cout << "nombre: ";
-            cin.ignore(80,'\n');
+            cin.ignore(80, '\n');
             getline(cin, nuevo.nombre);
 
             cout << "apellido paterno: ";
@@ -36,50 +37,44 @@ int main()
 
             cout << "dia: ";
             cin >> nuevo.fechaNacimiento.dia;
-            
 
             cout << "mes: ";
             cin >> nuevo.fechaNacimiento.mes;
-            
 
             cout << "año: ";
             cin >> nuevo.fechaNacimiento.anho;
-            
 
-            ingresar(agenda, nuevo);
+            std::cout << "posición: ";
+            cin >> index;
+
+            ingresar(agenda, nuevo, index);
+
             cout << "Desea realizar otra operacion ?(Y/n)";
             cin >> preposicion;
             break;
         case '2':
             cout << "id a modificar: ";
             cin >> nuevo.id;
-            
 
             cout << "nombre: ";
-            cin.ignore(80,'\n');
+            cin.ignore(80, '\n');
             getline(cin, nuevo.nombre);
-            
 
             cout << "apellido paterno: ";
             getline(cin, nuevo.apellidoPaterno);
-            
 
             cout << "apellido materno: ";
-            cin.ignore(80,'\n');
+            cin.ignore(80, '\n');
             getline(cin, nuevo.apellidoMaterno);
-            
 
             cout << "dia: ";
             cin >> nuevo.fechaNacimiento.dia;
-            
 
             cout << "mes: ";
             cin >> nuevo.fechaNacimiento.mes;
-            
 
             cout << "año: ";
             cin >> nuevo.fechaNacimiento.anho;
-            
 
             modificar(agenda, nuevo.id, nuevo);
             cout << "Desea realizar otra operacion?(Y/n)";
